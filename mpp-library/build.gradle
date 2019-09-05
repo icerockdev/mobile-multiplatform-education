@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
+
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.multiplatform'
 
@@ -52,4 +55,20 @@ kotlin {
             }
         }
     }
+}
+
+tasks.toList().forEach { task ->
+    if(!(task instanceof KotlinNativeLink)) return
+    def framework = task.binary
+    if(!(framework instanceof Framework)) return
+    def linkTask = framework.linkTask
+
+    def syncTaskName = linkTask.name.replaceFirst("link", "sync")
+    def syncFramework = tasks.create(syncTaskName, Sync.class) {
+        group = "cocoapods"
+
+        from(framework.outputDirectory)
+        into(file("build/cocoapods/framework"))
+    }
+    syncFramework.dependsOn(linkTask)
 }
