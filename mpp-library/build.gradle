@@ -1,8 +1,6 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
-import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
-
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: 'dev.icerock.mobile.multiplatform'
 
 android {
     compileSdkVersion 28
@@ -11,64 +9,10 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
     }
-
-    sourceSets {
-        main {
-            setRoot('src/androidMain')
-        }
-        release {
-            setRoot('src/androidMainRelease')
-        }
-        debug {
-            setRoot('src/androidMainDebug')
-        }
-        test {
-            setRoot('src/androidUnitTest')
-        }
-        testRelease {
-            setRoot('src/androidUnitTestRelease')
-        }
-        testDebug {
-            setRoot('src/androidUnitTestDebug')
-        }
-    }
 }
 
-kotlin {
-    targets {
-        android()
+KotlinMultiplatformExtensionExtKt.setupFramework(project, [])
 
-        def configure = {
-            binaries {
-                framework("MultiPlatformLibrary")
-            }
-        }
-
-        iosArm64("iosArm64", configure)
-        iosX64("iosX64", configure)
-    }
-
-    sourceSets {
-        commonMain {
-            dependencies {
-                implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-            }
-        }
-    }
-}
-
-tasks.toList().forEach { task ->
-    if(!(task instanceof KotlinNativeLink)) return
-    def framework = task.binary
-    if(!(framework instanceof Framework)) return
-    def linkTask = framework.linkTask
-
-    def syncTaskName = linkTask.name.replaceFirst("link", "sync")
-    def syncFramework = tasks.create(syncTaskName, Sync.class) {
-        group = "cocoapods"
-
-        from(framework.outputDirectory)
-        into(file("build/cocoapods/framework"))
-    }
-    syncFramework.dependsOn(linkTask)
+dependencies {
+    commonMainImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
