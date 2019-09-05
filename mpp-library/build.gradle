@@ -15,4 +15,6 @@ KotlinMultiplatformExtensionExtKt.setupFramework(project, [])
 
 dependencies {
     commonMainImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    commonMainApi "dev.icerock.moko:core:0.1.0"
 }
