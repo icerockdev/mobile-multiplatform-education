@@ -4,6 +4,7 @@ import AndroidHelloWorld
 import HelloWorld
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dev.icerock.moko.core.getCurrentMilliSeconds
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,8 @@ class MainActivity : AppCompatActivity() {
 
         HelloWorld.print()
         AndroidHelloWorld.print()
+
+        println("start time: ${getCurrentMilliSeconds()}")
 
         HelloWorld.start()
     }

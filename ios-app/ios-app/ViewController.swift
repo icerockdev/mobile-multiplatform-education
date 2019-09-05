@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     HelloWorld().print()
     IosHelloWorld().print()
     
+    print("start time \(CurrentTimeKt.getCurrentMilliSeconds()) milliseconds")
+    
     HelloWorld().start()
   }
 }

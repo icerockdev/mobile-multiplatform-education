@@ -11,7 +11,14 @@ android {
     }
 }
 
-KotlinMultiplatformExtensionExtKt.setupFramework(project, [])
+KotlinMultiplatformExtensionExtKt.setupFramework(project, [
+        MultiPlatformLibrary.newInstance(
+                null,
+                "dev.icerock.moko:core:0.1.0",
+                "dev.icerock.moko:core-iosx64:0.1.0",
+                "dev.icerock.moko:core-iosarm64:0.1.0"
+        )
+])
 
 dependencies {
     commonMainImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
