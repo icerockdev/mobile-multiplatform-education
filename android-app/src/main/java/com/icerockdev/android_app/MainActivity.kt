@@ -1,12 +1,15 @@
 package com.icerockdev.android_app
 
-import androidx.appcompat.app.AppCompatActivity
+import HelloWorld
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
+        HelloWorld.print()
     }
 }
