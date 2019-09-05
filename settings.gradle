@@ -1,2 +1,3 @@
 include ':android-app'
+include ':mpp-library'
 rootProject.name = 'Mobile MultiPlatform'
