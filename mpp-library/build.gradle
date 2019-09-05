@@ -9,3 +9,11 @@ android {
         targetSdkVersion 28
     }
 }
+
+kotlin {
+    targets {
+        android()
+        iosArm64()
+        iosX64()
+    }
+}
