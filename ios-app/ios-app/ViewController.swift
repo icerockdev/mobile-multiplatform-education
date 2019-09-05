@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     HelloWorld().print()
     IosHelloWorld().print()
+    
+    HelloWorld().start()
   }
 }
 

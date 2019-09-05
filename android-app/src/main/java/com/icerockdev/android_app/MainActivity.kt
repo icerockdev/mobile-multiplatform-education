@@ -1,5 +1,6 @@
 package com.icerockdev.android_app
 
+import AndroidHelloWorld
 import HelloWorld
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,5 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         HelloWorld.print()
         AndroidHelloWorld.print()
+
+        HelloWorld.start()
     }
 }
