@@ -34,8 +34,15 @@ android {
 kotlin {
     targets {
         android()
-        iosArm64()
-        iosX64()
+
+        def configure = {
+            binaries {
+                framework("MultiPlatformLibrary")
+            }
+        }
+
+        iosArm64("iosArm64", configure)
+        iosX64("iosX64", configure)
     }
 
     sourceSets {
