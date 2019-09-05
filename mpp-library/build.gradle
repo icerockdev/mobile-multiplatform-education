@@ -37,4 +37,12 @@ kotlin {
         iosArm64()
         iosX64()
     }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+            }
+        }
+    }
 }
