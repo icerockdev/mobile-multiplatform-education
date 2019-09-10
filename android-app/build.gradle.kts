@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(Versions.Android.compileSdk)
 
     defaultConfig {
         applicationId = "com.icerockdev.android_app"
-        minSdkVersion(21)
-        targetSdkVersion(28)
+        minSdkVersion(Versions.Android.minSdk)
+        targetSdkVersion(Versions.Android.targetSdk)
 
         versionCode = 1
         versionName = "1.0"
