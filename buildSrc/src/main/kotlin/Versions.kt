@@ -4,4 +4,6 @@ object Versions {
         const val targetSdk = 28
         const val minSdk = 21
     }
+
+    const val kotlin = "1.3.50"
 }

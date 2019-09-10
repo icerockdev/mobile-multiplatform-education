@@ -24,8 +24,6 @@ setupFramework(listOf(
 )
 
 dependencies {
-    val kotlin_version: String by extra
-
-    "commonMainImplementation"("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version")
+    "commonMainImplementation"("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
     "commonMainApi"("dev.icerock.moko:core:0.1.0")
 }

@@ -24,9 +24,7 @@ android {
 }
 
 dependencies {
-    val kotlin_version: String by extra
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}")
     implementation("androidx.appcompat:appcompat:1.0.2")
     implementation("androidx.core:core-ktx:1.0.2")
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
