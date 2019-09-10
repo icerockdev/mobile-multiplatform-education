@@ -31,6 +31,11 @@ object Deps {
                 iosX64 = "dev.icerock.moko:core-iosx64:${Versions.Libs.MultiPlatform.mokoCore}",
                 iosArm64 = "dev.icerock.moko:core-iosarm64:${Versions.Libs.MultiPlatform.mokoCore}"
             )
+            val mokoMvvm = MultiPlatformLibrary(
+                common = "dev.icerock.moko:mvvm:${Versions.Libs.MultiPlatform.mokoMvvm}",
+                iosX64 = "dev.icerock.moko:mvvm-iosx64:${Versions.Libs.MultiPlatform.mokoMvvm}",
+                iosArm64 = "dev.icerock.moko:mvvm-iosarm64:${Versions.Libs.MultiPlatform.mokoMvvm}"
+            )
         }
     }
 
