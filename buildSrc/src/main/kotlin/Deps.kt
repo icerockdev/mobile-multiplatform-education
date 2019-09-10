@@ -19,6 +19,9 @@ object Deps {
             val constraintLayout = AndroidLibrary(
                 name = "androidx.constraintlayout:constraintlayout:${Versions.Libs.Android.constraintLayout}"
             )
+            val lifecycle = AndroidLibrary(
+                "androidx.lifecycle:lifecycle-extensions:${Versions.Libs.Android.lifecycle}"
+            )
         }
 
         object MultiPlatform {

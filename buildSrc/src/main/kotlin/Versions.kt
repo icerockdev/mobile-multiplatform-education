@@ -19,6 +19,7 @@ object Versions {
             const val kotlinStdLib = Versions.kotlin
             const val appCompat = "1.1.0"
             const val constraintLayout = "1.1.3"
+            const val lifecycle = "2.0.0"
         }
 
         object MultiPlatform {
