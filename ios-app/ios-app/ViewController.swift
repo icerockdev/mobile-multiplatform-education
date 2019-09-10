@@ -8,19 +8,25 @@
 
 import UIKit
 import MultiPlatformLibrary
+import MultiPlatformLibraryMvvm
 
 class ViewController: UIViewController {
 
+  @IBOutlet private var textLabel: UILabel!
+  
+  private var viewModel: TestViewModel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    HelloWorld().print()
-    IosHelloWorld().print()
+    viewModel = TestViewModel()
     
-    print("start time \(CurrentTimeKt.getCurrentMilliSeconds()) milliseconds")
-    
-    HelloWorld().start()
+    textLabel.bindText(liveData: viewModel.counter)
+  }
+  
+  @IBAction func onUpButtonPressed() {
+    viewModel.onUpButtonPressed()
   }
 }
 
