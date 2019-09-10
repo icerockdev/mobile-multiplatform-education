@@ -6,4 +6,11 @@ object Versions {
     }
 
     const val kotlin = "1.3.50"
+
+    object Plugins {
+        const val android = "3.5.0"
+
+        const val kotlin = Versions.kotlin
+        const val androidExtensions = Versions.kotlin
+    }
 }
