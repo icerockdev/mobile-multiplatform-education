@@ -13,6 +13,12 @@ object Deps {
             val kotlinStdLib = AndroidLibrary(
                 name = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.Libs.Android.kotlinStdLib}"
             )
+            val appCompat = AndroidLibrary(
+                name = "androidx.appcompat:appcompat:${Versions.Libs.Android.appCompat}"
+            )
+            val constraintLayout = AndroidLibrary(
+                name = "androidx.constraintlayout:constraintlayout:${Versions.Libs.Android.constraintLayout}"
+            )
         }
 
         object MultiPlatform {

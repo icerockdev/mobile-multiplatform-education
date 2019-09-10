@@ -17,6 +17,8 @@ object Versions {
     object Libs {
         object Android {
             const val kotlinStdLib = Versions.kotlin
+            const val appCompat = "1.1.0"
+            const val constraintLayout = "1.1.3"
         }
 
         object MultiPlatform {
