@@ -26,6 +26,7 @@ object Versions {
             const val kotlinStdLib = Versions.kotlin
             const val mokoCore = "0.1.0"
             const val mokoMvvm = "0.1.0"
+            const val mokoResources = "0.1.0"
         }
     }
 }
