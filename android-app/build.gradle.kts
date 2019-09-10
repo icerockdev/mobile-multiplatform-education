@@ -22,6 +22,10 @@ android {
         }
     }
 
+    dataBinding {
+        isEnabled = true
+    }
+
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
     }

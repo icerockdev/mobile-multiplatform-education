@@ -1,22 +1,23 @@
 package com.icerockdev.android_app
 
-import AndroidHelloWorld
-import HelloWorld
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.icerock.moko.core.getCurrentMilliSeconds
+import androidx.databinding.DataBindingUtil
+import com.icerockdev.android_app.databinding.ActivityMainBinding
+import dev.icerock.library.TestViewModel
+import dev.icerock.moko.mvvm.getViewModel
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        HelloWorld.print()
-        AndroidHelloWorld.print()
+        val binding: ActivityMainBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        println("start time: ${getCurrentMilliSeconds()}")
+        val viewModel = getViewModel { TestViewModel() }
 
-        HelloWorld.start()
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
     }
 }
