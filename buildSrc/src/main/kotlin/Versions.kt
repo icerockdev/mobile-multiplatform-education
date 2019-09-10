@@ -13,4 +13,15 @@ object Versions {
         const val kotlin = Versions.kotlin
         const val androidExtensions = Versions.kotlin
     }
+
+    object Libs {
+        object Android {
+            const val kotlinStdLib = Versions.kotlin
+        }
+
+        object MultiPlatform {
+            const val kotlinStdLib = Versions.kotlin
+            const val mokoCore = "0.1.0"
+        }
+    }
 }

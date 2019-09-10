@@ -13,17 +13,9 @@ android {
     }
 }
 
-setupFramework(listOf(
-        MultiPlatformLibrary(
-                android = null,
-                common = "dev.icerock.moko:core:0.1.0",
-                iosX64 = "dev.icerock.moko:core-iosx64:0.1.0",
-                iosArm64 = "dev.icerock.moko:core-iosarm64:0.1.0"
-        )
-   )
-)
+setupFramework(listOf(Deps.Libs.MultiPlatform.mokoCore))
 
 dependencies {
-    "commonMainImplementation"("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}")
-    "commonMainApi"("dev.icerock.moko:core:0.1.0")
+    mppLibrary(Deps.Libs.MultiPlatform.kotlinStdLib)
+    mppLibrary(Deps.Libs.MultiPlatform.mokoCore)
 }
