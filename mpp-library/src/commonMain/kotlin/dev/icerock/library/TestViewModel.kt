@@ -6,7 +6,7 @@ import dev.icerock.moko.mvvm.dispatcher.EventsDispatcher
 import dev.icerock.moko.mvvm.livedata.LiveData
 import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.livedata.map
-import dev.icerock.moko.mvvm.livedata.mediator
+import dev.icerock.moko.mvvm.livedata.mergeWith
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 
 /*
@@ -29,10 +29,7 @@ class TestViewModel(
     val firstName: MutableLiveData<String> = MutableLiveData("")
     val lastName: MutableLiveData<String> = MutableLiveData("")
 
-    val name: LiveData<String> = listOf<LiveData<String>>(firstName, lastName).mediator { list ->
-        val firstName = list[0]
-        val lastName = list[1]
-
+    val name: LiveData<String> = firstName.mergeWith(lastName) { firstName, lastName ->
         "$firstName $lastName"
     }
 
