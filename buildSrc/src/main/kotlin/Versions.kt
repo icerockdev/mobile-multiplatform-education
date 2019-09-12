@@ -7,11 +7,14 @@ object Versions {
 
     const val kotlin = "1.3.50"
 
+    private const val mokoResources = "0.3.0"
+
     object Plugins {
         const val android = "3.5.0"
 
         const val kotlin = Versions.kotlin
         const val androidExtensions = Versions.kotlin
+        const val mokoResources = Versions.mokoResources
     }
 
     object Libs {
@@ -26,7 +29,7 @@ object Versions {
             const val kotlinStdLib = Versions.kotlin
             const val mokoCore = "0.1.0"
             const val mokoMvvm = "0.1.0"
-            const val mokoResources = "0.1.0"
+            const val mokoResources = Versions.mokoResources
         }
     }
 }

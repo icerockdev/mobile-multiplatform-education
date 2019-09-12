@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.multiplatform")
     id("dev.icerock.mobile.multiplatform")
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 android {
@@ -28,4 +29,8 @@ dependencies {
     mppLibrary(Deps.Libs.MultiPlatform.mokoResources)
 
     androidLibrary(Deps.Libs.Android.lifecycle)
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "dev.icerock.library"
 }
