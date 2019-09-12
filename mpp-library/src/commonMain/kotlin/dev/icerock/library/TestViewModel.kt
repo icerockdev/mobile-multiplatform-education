@@ -30,7 +30,7 @@ class TestViewModel(
     val lastName: MutableLiveData<String> = MutableLiveData("")
 
     val name: LiveData<String> = firstName.mergeWith(lastName) { firstName, lastName ->
-        "$firstName $lastName"
+        listOf(firstName, lastName).filter { it.isNotEmpty() }.joinToString(" ")
     }
 
     fun onUpButtonPressed() {
