@@ -4,9 +4,9 @@ import dev.icerock.moko.mvvm.desc.StringDesc
 import dev.icerock.moko.mvvm.desc.desc
 import dev.icerock.moko.mvvm.dispatcher.EventsDispatcher
 import dev.icerock.moko.mvvm.livedata.LiveData
-import dev.icerock.moko.mvvm.livedata.MediatorLiveData
 import dev.icerock.moko.mvvm.livedata.MutableLiveData
 import dev.icerock.moko.mvvm.livedata.map
+import dev.icerock.moko.mvvm.livedata.mediator
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 
 /*
@@ -29,15 +29,11 @@ class TestViewModel(
     val firstName: MutableLiveData<String> = MutableLiveData("")
     val lastName: MutableLiveData<String> = MutableLiveData("")
 
-    val name: LiveData<String> = MediatorLiveData<String>("").apply {
-        addSource(firstName) { firstName ->
-            val lastName = this@TestViewModel.lastName.value
-            this.value = "$firstName $lastName"
-        }
-        addSource(lastName) { lastName ->
-            val firstName = this@TestViewModel.firstName.value
-            this.value = "$firstName $lastName"
-        }
+    val name: LiveData<String> = listOf<LiveData<String>>(firstName, lastName).mediator { list ->
+        val firstName = list[0]
+        val lastName = list[1]
+
+        "$firstName $lastName"
     }
 
     fun onUpButtonPressed() {
