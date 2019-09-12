@@ -26,11 +26,17 @@ class TestViewModel(
     }
 
     fun onUpButtonPressed() {
+        println("before set value: ${_counter.value}")
         _counter.value = _counter.value + 1
+        println("after set value: ${_counter.value}")
 
         if ((_counter.value % 10) == 0) {
             eventsDispatcher.dispatchEvent { showAlert(MR.strings.every_ten.desc()) }
         }
+
+        println("before post value: ${_counter.value}")
+        _counter.postValue(_counter.value + 1)
+        println("after post value: ${_counter.value}")
     }
 
     interface EventsListener {
