@@ -2,4 +2,5 @@
 <resources>
     <string name="odd">Нечетное</string>
     <string name="even">Четное</string>
+    <string name="every_ten">Кратно десяти!</string>
 </resources>

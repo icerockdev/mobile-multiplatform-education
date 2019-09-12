@@ -20,7 +20,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     
-    viewModel = TestViewModel()
+    let eventsDispatcher = EventsDispatcher<TestViewModelEventsListener>(listener: self)
+    viewModel = TestViewModel(eventsDispatcher: eventsDispatcher)
     
     textLabel.bindText(liveData: viewModel.counter)
   }
@@ -30,3 +31,13 @@ class ViewController: UIViewController {
   }
 }
 
+extension ViewController: TestViewModelEventsListener {
+  func showAlert(text: StringDesc) {
+    let alert = UIAlertController(title: nil,
+                                  message: text.localized(),
+                                  preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    
+    present(alert, animated: true, completion: nil)
+  }
+}
