@@ -31,17 +31,47 @@
                                     <action selector="onUpButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="x9d-AC-8j8"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kD6-2g-Hzo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="un0-5o-arz">
+                                <rect key="frame" x="0.0" y="82" width="414" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0B-cH-PSz">
+                                <rect key="frame" x="0.0" y="120" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PaO-Dn-4IM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0sg-sa-8UA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kD6-2g-Hzo" secondAttribute="trailing" id="9wb-8B-nXG"/>
+                            <constraint firstItem="un0-5o-arz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CT3-Sx-Rhk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s0B-cH-PSz" secondAttribute="trailing" id="Ejj-60-opX"/>
+                            <constraint firstItem="kD6-2g-Hzo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JZT-9X-1w5"/>
+                            <constraint firstItem="kD6-2g-Hzo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qbl-uX-X1j"/>
                             <constraint firstItem="zi5-be-vPh" firstAttribute="top" secondItem="PaO-Dn-4IM" secondAttribute="bottom" constant="8" id="Tt4-Dz-VGU"/>
                             <constraint firstItem="zi5-be-vPh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ek1-Yc-qxb"/>
+                            <constraint firstItem="un0-5o-arz" firstAttribute="top" secondItem="kD6-2g-Hzo" secondAttribute="bottom" constant="8" id="iKU-Yv-JDL"/>
                             <constraint firstItem="PaO-Dn-4IM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jxw-35-MLo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="un0-5o-arz" secondAttribute="trailing" id="kCf-TS-sd6"/>
+                            <constraint firstItem="s0B-cH-PSz" firstAttribute="top" secondItem="un0-5o-arz" secondAttribute="bottom" constant="8" id="oHM-j7-sXR"/>
+                            <constraint firstItem="s0B-cH-PSz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pxY-Bx-yzz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="firstNameInput" destination="kD6-2g-Hzo" id="KzV-No-DjS"/>
+                        <outlet property="lastNameInput" destination="un0-5o-arz" id="ytz-ci-dJI"/>
+                        <outlet property="nameLabel" destination="s0B-cH-PSz" id="5lG-9c-CBc"/>
                         <outlet property="textLabel" destination="PaO-Dn-4IM" id="rum-4S-BwJ"/>
                     </connections>
                 </viewController>

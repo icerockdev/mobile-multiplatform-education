@@ -14,6 +14,10 @@ class ViewController: UIViewController {
 
   @IBOutlet private var textLabel: UILabel!
   
+  @IBOutlet private var firstNameInput: UITextField!
+  @IBOutlet private var lastNameInput: UITextField!
+  @IBOutlet private var nameLabel: UILabel!
+  
   private var viewModel: TestViewModel!
   
   override func viewDidLoad() {
@@ -24,6 +28,9 @@ class ViewController: UIViewController {
     viewModel = TestViewModel(eventsDispatcher: eventsDispatcher)
     
     textLabel.bindText(liveData: viewModel.counter)
+    firstNameInput.bindTextTwoWay(liveData: viewModel.firstName)
+    lastNameInput.bindTextTwoWay(liveData: viewModel.lastName)
+    nameLabel.bindText(liveData: viewModel.name)
   }
   
   @IBAction func onUpButtonPressed() {
