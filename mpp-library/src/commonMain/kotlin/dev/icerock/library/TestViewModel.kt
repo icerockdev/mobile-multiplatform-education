@@ -3,10 +3,7 @@ package dev.icerock.library
 import dev.icerock.moko.mvvm.desc.StringDesc
 import dev.icerock.moko.mvvm.desc.desc
 import dev.icerock.moko.mvvm.dispatcher.EventsDispatcher
-import dev.icerock.moko.mvvm.livedata.LiveData
-import dev.icerock.moko.mvvm.livedata.MutableLiveData
-import dev.icerock.moko.mvvm.livedata.map
-import dev.icerock.moko.mvvm.livedata.mergeWith
+import dev.icerock.moko.mvvm.livedata.*
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 
 /*
@@ -31,6 +28,8 @@ class TestViewModel(
 
     val name: LiveData<String> = firstName.mergeWith(lastName) { firstName, lastName ->
         listOf(firstName, lastName).filter { it.isNotEmpty() }.joinToString(" ")
+    }.mapBuffered { current, new ->
+        "old name: $current\nnew name: $new"
     }
 
     fun onUpButtonPressed() {
