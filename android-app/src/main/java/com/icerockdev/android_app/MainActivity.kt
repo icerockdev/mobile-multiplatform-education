@@ -1,6 +1,7 @@
 package com.icerockdev.android_app
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity(), TestViewModel.EventsListener {
             lifecycleOwner = this,
             listener = this
         )
+
+        mapOf(
+            binding.costRubInput to viewModel.costRubFocused,
+            binding.costDollarInput to viewModel.costDollarFocused
+        ).forEach { (input, focusedLiveData) ->
+            input.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
+                focusedLiveData.value = hasFocus
+            }
+        }
     }
 
     override fun showAlert(text: StringDesc) {
