@@ -69,8 +69,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="firstNameInput" destination="kD6-2g-Hzo" id="KzV-No-DjS"/>
-                        <outlet property="lastNameInput" destination="un0-5o-arz" id="ytz-ci-dJI"/>
+                        <outlet property="costDollarInput" destination="un0-5o-arz" id="an9-5Z-46R"/>
+                        <outlet property="costRubInput" destination="kD6-2g-Hzo" id="sDV-2d-M1Q"/>
                         <outlet property="nameLabel" destination="s0B-cH-PSz" id="5lG-9c-CBc"/>
                         <outlet property="textLabel" destination="PaO-Dn-4IM" id="rum-4S-BwJ"/>
                     </connections>
