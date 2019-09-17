@@ -32,6 +32,26 @@ class TestViewModel(
         "old name: $current\nnew name: $new"
     }
 
+    private val _costRub: MediatorLiveData<String> = MediatorLiveData("")
+    val costRub: MutableLiveData<String> = _costRub
+    private val _costDollar: MediatorLiveData<String> = MediatorLiveData("")
+    val costDollar: MutableLiveData<String> = _costDollar
+
+    init {
+        val rubInDollar = 60.0f
+
+        _costRub.addSource(_costDollar) { newDollarValue ->
+            val dollars = newDollarValue.toFloatOrNull() ?: 0.0f
+            val rubs = dollars * rubInDollar
+            _costRub.value = rubs.toString()
+        }
+        _costDollar.addSource(_costRub) { newRubValue ->
+            val rubs = newRubValue.toFloatOrNull() ?: 0.0f
+            val dollars = rubs / rubInDollar
+            _costDollar.value = dollars.toString()
+        }
+    }
+
     fun onUpButtonPressed() {
         println("before set value: ${_counter.value}")
         _counter.value = _counter.value + 1
