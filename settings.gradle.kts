@@ -19,4 +19,8 @@ enableFeaturePreview("GRADLE_METADATA")
 include(":android-app")
 include(":mpp-library")
 
+listOf(
+    Modules.MultiPlatform.domain
+).forEach { include(it.name) }
+
 rootProject.name = "EducationApp"

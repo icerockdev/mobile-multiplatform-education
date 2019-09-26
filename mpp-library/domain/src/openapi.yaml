@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: Jira Server API
+  version: v2
+servers:
+  - url: https://jira.icerockdev.com
+    description: live
+paths:
+  /rest/api/2/myself:
+    get:
+      tags:
+        - user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    UserResponse:
+      properties:
+        name:
+          type: string
+          example: fred
+        emailAddress:
+          type: string
+          example: fred@example.com
+        displayName:
+          type: string
+          example: Fred F. User
+        active:
+          type: boolean
+          example: true
+      required:
+        - name
+        - emailAddress
+        - active
+      type: object
+  parameters:
+    Authorization:
+      name: Authorization
+      in: header
+      required: true
+      schema:
+        type: string
