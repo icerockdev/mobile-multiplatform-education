@@ -6,7 +6,6 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.multiplatform")
     id("dev.icerock.mobile.multiplatform")
-    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 android {
@@ -18,26 +17,14 @@ android {
     }
 }
 
-setupFramework(
-    listOf(
-        Deps.Libs.MultiPlatform.mokoCore,
-        Deps.Libs.MultiPlatform.mokoMvvm,
-        Deps.Libs.MultiPlatform.mokoResources
-    )
-)
-
 dependencies {
     mppLibrary(Deps.Libs.MultiPlatform.kotlinStdLib)
+    mppLibrary(Deps.Libs.MultiPlatform.coroutines)
+
     mppLibrary(Deps.Libs.MultiPlatform.mokoCore)
     mppLibrary(Deps.Libs.MultiPlatform.mokoMvvm)
     mppLibrary(Deps.Libs.MultiPlatform.mokoResources)
+    mppLibrary(Deps.Libs.MultiPlatform.mokoFields)
 
     androidLibrary(Deps.Libs.Android.lifecycle)
-
-    mppModule(Modules.MultiPlatform.domain)
-    mppModule(Modules.MultiPlatform.Feature.auth)
-}
-
-multiplatformResources {
-    multiplatformResourcesPackage = "dev.icerock.library"
 }

@@ -20,7 +20,8 @@ include(":android-app")
 include(":mpp-library")
 
 listOf(
-    Modules.MultiPlatform.domain
+    Modules.MultiPlatform.domain,
+    Modules.MultiPlatform.Feature.auth
 ).forEach { include(it.name) }
 
 rootProject.name = "EducationApp"

@@ -10,14 +10,10 @@ object Modules {
         )
 
         object Feature {
-//            val auth = MultiPlatformModule(
-//                name = ":mpp-library:feature:auth",
-//                exported = true
-//            )
-//            val news = MultiPlatformModule(
-//                name = ":mpp-library:feature:news",
-//                exported = true
-//            )
+            val auth = MultiPlatformModule(
+                name = ":mpp-library:feature:auth",
+                exported = true
+            )
         }
     }
 }
