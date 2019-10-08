@@ -3,6 +3,7 @@
  */
 
 import UIKit
+import MultiPlatformLibrary
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    let factory = Factory_(settings: AppleSettings(delegate: UserDefaults.standard),
+                           baseUrl: "https://jira.icerockdev.com")
     return true
   }
 

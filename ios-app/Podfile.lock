@@ -1,4 +1,8 @@
 PODS:
+  - FeatureAuth (0.1.0):
+    - MultiPlatformLibrary
+    - MultiPlatformLibraryMvvm/Core
+    - MultiPlatformLibraryResources
   - MultiPlatformLibrary (0.1.0)
   - MultiPlatformLibraryMvvm/Core (0.1.0):
     - MultiPlatformLibrary
@@ -7,11 +11,14 @@ PODS:
     - MultiPlatformLibrary
 
 DEPENDENCIES:
+  - FeatureAuth (from `../mpp-library/feature/auth`)
   - MultiPlatformLibrary (from `../mpp-library`)
   - MultiPlatformLibraryMvvm/Core (from `https://github.com/icerockdev/moko-mvvm.git`, tag `release/0.2.0`)
   - MultiPlatformLibraryResources (from `https://github.com/icerockdev/moko-resources.git`, tag `release/0.3.0`)
 
 EXTERNAL SOURCES:
+  FeatureAuth:
+    :path: "../mpp-library/feature/auth"
   MultiPlatformLibrary:
     :path: "../mpp-library"
   MultiPlatformLibraryMvvm:
@@ -30,10 +37,11 @@ CHECKOUT OPTIONS:
     :tag: release/0.3.0
 
 SPEC CHECKSUMS:
+  FeatureAuth: 330985bd167270248d21707c5ee4c51b2547daf7
   MultiPlatformLibrary: 176fb8ade516666cd47e93de1b71ba0441a541bb
   MultiPlatformLibraryMvvm: f66c30caed0bd09ccc5443b068cb6b330e3166a8
   MultiPlatformLibraryResources: 5cc246020c1b505ff909b4a0851c216847bb92eb
 
-PODFILE CHECKSUM: 3ea41bc15edcf4683ad8f4924f5d5945347d6ac6
+PODFILE CHECKSUM: 9b9c7f9fa3911db4156e79b0026cff69c2bb27fd
 
 COCOAPODS: 1.7.5

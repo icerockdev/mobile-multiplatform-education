@@ -22,7 +22,9 @@ setupFramework(
     listOf(
         Deps.Libs.MultiPlatform.mokoCore,
         Deps.Libs.MultiPlatform.mokoMvvm,
-        Deps.Libs.MultiPlatform.mokoResources
+        Deps.Libs.MultiPlatform.mokoResources,
+        Deps.Libs.MultiPlatform.settings,
+        Modules.MultiPlatform.Feature.auth
     )
 )
 
