@@ -1,24 +1,22 @@
-/*
- * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
- */
+package dev.icerock.library.domain.repository
 
-package dev.icerock.library.domain.model
-
-import dev.icerock.library.domain.entity.User
-import dev.icerock.library.domain.entity.toDomain
+import dev.icerock.library.domain.storage.KeyValueStorage
 import dev.icerock.moko.network.generated.apis.UserApi
 import io.ktor.util.InternalAPI
 import io.ktor.util.encodeBase64
+
+/*
+ * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
+ */
 
 class UserRepository internal constructor(
     private val userApi: UserApi,
     private val keyValueStorage: KeyValueStorage
 ) {
-    suspend fun authorize(login: String, password: String): User {
-        val credentials = buildCredentials(login = login, password = password)
-        keyValueStorage.credentials = credentials
+    suspend fun authorize(login: String, password: String) {
+        keyValueStorage.credentials = buildCredentials(login = login, password = password)
         try {
-            return userApi.restApi2MyselfGet().toDomain()
+            userApi.restApi2MyselfGet()
         } catch (error: Exception) {
             keyValueStorage.credentials = null
             throw error

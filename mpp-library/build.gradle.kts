@@ -32,6 +32,9 @@ dependencies {
     mppLibrary(Deps.Libs.MultiPlatform.mokoMvvm)
     mppLibrary(Deps.Libs.MultiPlatform.mokoResources)
 
+    mppModule(Modules.MultiPlatform.domain)
+    mppModule(Modules.MultiPlatform.Feature.auth)
+
     androidLibrary(Deps.Libs.Android.lifecycle)
 
     mppModule(Modules.MultiPlatform.domain)

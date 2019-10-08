@@ -6,8 +6,8 @@ package dev.icerock.library.domain.di
 
 import com.github.aakira.napier.Napier
 import com.russhwolf.settings.Settings
-import dev.icerock.library.domain.model.KeyValueStorage
-import dev.icerock.library.domain.model.UserRepository
+import dev.icerock.library.domain.repository.UserRepository
+import dev.icerock.library.domain.storage.KeyValueStorage
 import dev.icerock.moko.network.exceptionfactory.HttpExceptionFactory
 import dev.icerock.moko.network.exceptionfactory.parser.ErrorExceptionParser
 import dev.icerock.moko.network.exceptionfactory.parser.ValidationExceptionParser
@@ -22,16 +22,16 @@ import io.ktor.http.HttpStatusCode
 import kotlinx.serialization.json.Json
 
 class Factory(
-    private val settings: Settings,
-    private val baseUrl: String
+    val baseUrl: String,
+    val settings: Settings
 ) {
-    private val keyValueStorage: KeyValueStorage by lazy {
-        KeyValueStorage(settings)
-    }
-
     private val json: Json by lazy {
         @Suppress("EXPERIMENTAL_API_USAGE")
         Json.nonstrict
+    }
+
+    private val keyValueStorage: KeyValueStorage by lazy {
+        KeyValueStorage(settings)
     }
 
     private val httpClient: HttpClient by lazy {
