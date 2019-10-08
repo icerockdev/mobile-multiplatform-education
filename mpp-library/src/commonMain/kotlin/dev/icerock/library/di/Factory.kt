@@ -2,6 +2,7 @@ package dev.icerock.library.di
 
 import com.russhwolf.settings.Settings
 import dev.icerock.library.MR
+import dev.icerock.library.feature.auth.di.AuthModule
 import dev.icerock.library.feature.auth.model.UserRepository
 import dev.icerock.library.feature.auth.presentation.AuthViewModel
 import dev.icerock.moko.resources.StringResource
@@ -38,5 +39,9 @@ class Factory(
                 override val unknownError: StringResource = MR.strings.unknown_error
             }
         )
+    }
+
+    init {
+        AuthModule.setup { AuthModule(factory = authFactory) }
     }
 }

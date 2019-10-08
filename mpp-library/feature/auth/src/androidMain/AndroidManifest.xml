@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="dev.icerock.library.feature.auth" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.icerock.library.feature.auth">
+
+    <application>
+        <activity android:name=".view.AuthActivity" />
+    </application>
+</manifest>
